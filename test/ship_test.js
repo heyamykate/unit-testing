@@ -72,6 +72,7 @@ describe('fire', function() {
 	var fire = require('../game_logic/ship_methods').fire;
 	var player;
 
+	// setup - reinitializes whenever test is run because this function has side effects
 	beforeEach(function() {
 		player = {
 			ships: [
@@ -81,6 +82,14 @@ describe('fire', function() {
 				}
 			]
 		};
+	});
+
+	after(function() {
+		console.log('entire test suite completed');
+	});
+
+	afterEach(function() {
+		console.log('one unit test completed');
 	});
 
 	it('should record damage on the given players ship at a given coordinate', function() {
